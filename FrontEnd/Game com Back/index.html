@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Olha o passarinho!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Lobster+Two:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/tabuleiro.css">
+    <link rel="stylesheet" href="css/jAlertWifi.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/jAlertWifi.js"></script>
+    <link rel="shortcut icon" href="img/icone.jpg">
+</head>
+
+<body>
+    <header>
+        <p>Tempo: 00:<span id="chrono">00</span></p>
+        <p>Pontuação: <span id="score">0</span></p>
+    </header>
+    <main>
+        <section>
+            <fieldset>
+                <legend>
+                    <h1>Olha o passarinho!</h1>
+                </legend>
+                <div id="board" class="cursor"></div>
+            </fieldset>
+        </section>
+    </main>
+    <footer>
+        <div class="controle">
+            <label for="level">Nível</label>
+            <select name="" id="level" onchange="fillBoard()">
+                <option value="easy">Easy</option>
+                <option value="medium" selected>Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+            <button id="btnPlay">Play</button>
+            <button id="btnPause" disabled>Pause</button>
+            <button id="btnStop" disabled>Stop</button>
+            <button id="btnExit">Exit</button><br>
+        </div>
+        <p classs="rodape">Developer by Cristina Kochmann</p>
+    </footer>
+</body>
+
+</html>

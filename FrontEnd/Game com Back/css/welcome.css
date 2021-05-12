@@ -1,0 +1,44 @@
+*{
+    
+    margin:auto;
+    padding: 30px;
+    text-align:center;
+    font-family: 'Lato', sans-serif;
+    margin:10px,50px;
+    font-size:20px;
+    
+}
+body{
+    border: 10px solid black;
+}
+h1{
+    text-align: left;
+    font-family: 'Lobster Two', cursive;
+    color:#FF4B0D;
+    font-size: 3em;
+}
+button {
+    padding: 10px;
+}
+footer{
+    margin-bottom: 0px;
+    text-align: right;
+}
+button{
+    background-color:#FF4B0D;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    background-color: #FF4B0D;
+    padding:15px;
+    border-radius:5px;
+    font-weight: bold;
+}
+a{
+    text-decoration:none;
+}
+a:visited{
+    color:white;
+}
+a:hover{
+    color:blue;
+}

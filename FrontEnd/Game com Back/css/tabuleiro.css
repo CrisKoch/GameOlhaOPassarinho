@@ -1,0 +1,94 @@
+* {
+	box-sizing: border-box;
+    margin:0;
+   
+}
+header, footer {
+    background-color: black;
+    color:white;
+    height: 50px;
+    text-align: left;
+    padding: auto;
+    font-size:1em;    
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.1em;
+    
+}
+main, section {
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    
+}
+main {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+    background-color:black;
+}
+#board {
+    
+    margin:auto;
+}
+#board div{
+    float:left;
+    
+}
+h1{
+    font-family: 'Lobster Two', cursive;
+    font-size: 3em;
+    color:orangered;
+}
+fieldset{
+    font-family: 'Lato', sans-serif;
+    border: 2px #FF4B0D solid;
+    border-radius: 10px;
+    color:white;
+    padding: 2em;
+}
+legend{
+    font-style: bold;
+    
+}
+img{
+    cursor: url(../img/camera2.png);
+}
+
+footer{
+    font-size:1em;
+    text-align:right;
+}
+button{
+    background-color:#FF4B0D;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    background-color: #FF4B0D;
+    padding:5px;
+    border-radius:5px;
+}
+.controle{
+    text-align:left;
+}
+.rodape{
+    text-align:right;
+    margin: 10px;
+}
