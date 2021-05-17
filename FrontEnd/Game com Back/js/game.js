@@ -7,7 +7,10 @@ var $timeGame = $inicialTime;
 var $idChronoGame; // irá controlar o setIterval do cronometro
 var $idChronoStartGame;
 var $urlParams = new URLSearchParams(window.location.search);
-var $userId = $urlParams.get('id');
+//var $userId = $urlParams.get('id_usuario');
+var $userId = sessionStorage.getItem("id");
+console.log("Passado pela sessionStorage: " + sessionStorage.getItem("id"))
+//console.log("Usuario: " + $userId)
 
 $(document).ready(function () {
     fillBoard();
@@ -43,34 +46,18 @@ function startChronoGame() {
 function endGame() {
     clearInterval($idChronoGame);
     clearInterval($idChronoStartGame);
-    //let $user = $("#user").val();
-    /*
-    $.getJSON("http://localhost:8080/ranking", function ($ranqueamento) {
-        console.log(JSON.stringify($ranqueamento));
-        $nivel = $ranqueamento.nivel();
-        switch ($nivel){
-            case 'easy':
-            console.log("Nível fácil");
-            break;
-            case 'medium':
-            console.log("Nível médio");
-            break;
-            case 'hard':
-            console.log("nivel difícil");
-            break;
-            default:
-                console.log("erro");
-        }
-        //if ($ranqueamento.filter($usuario => $usuario.user == $user && $usuario.pwd == $pwd).length > 0)        
-    });*/
+
     ranking($("#level option:selected").text(), $("#score").text(), $userId);
+    sessionStorage.setItem("level", $("#level option:selected").text());
     alertWifi(`Parabéns! No nível ${"<em>"}${$("#level option:selected").text()}${"</em>"} você conseguiu tirar ${$("#score").text()} fotos.`,
         false, 0, `img/${$imgsTheme.capa}`, "50");
+   
     fillBoard();
+
     $("#score").text("0");
     $timeGame = $inicialTime;
     $("#chrono").text($timeGame);
-
+   
 
 }
 
@@ -129,8 +116,28 @@ function getLevel() {
 }
 function ranking($nivel, $pontuacao, $userId) {
 
-    let $rankeamento = { "pontos": $pontuacao, "nivel": $nivel, "usuario_id": `{${$userId}}` };
+    let $rankeamento = { "pontos": $pontuacao, "nivel": $nivel, "usuario": { "id": $userId } };
     let $urlRanking = "http://localhost:8080/novo-ranking";
     axios.post($urlRanking, $rankeamento);
-    console.log(JSON.stringify($rankeamento));
+
 }
+
+/*function buscaRanking() {
+    const url = `http://localhost:8080/ranking/${$nivel}`;
+    axios.get(url).then(
+        (result) => {
+            console.log(result.data)
+            alertWifi(`Fim de Jogo. Sua pontuação foi = ${pontuacao}<div>` +
+                mostraRanking(result) + '</div>',
+                false, 0, `img/${$imgsTheme.dead}`, "50");
+        })
+};
+function mostraRanking(result) {
+    return (
+        "<table class='caixa'><thead><tr><td>Usuário</td><td>Pontos</td></tr></thead>" +
+        result.data.slice(0, 9).map(pontos => {
+            return `<tr><td>${pontos.usuario.user}</td><td>${pontos.pontuacao}</td></tr> `;
+        }).join('') +
+        "</table>"
+    )
+}*/

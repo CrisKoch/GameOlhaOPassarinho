@@ -91,3 +91,18 @@ input[type=text]:hover, textarea:hover,input[type=password]:hover{
 footer{
     text-align: right;
 }
+.tabela{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    background-color:blue;
+}
+.ranking{
+    text-align:center;
+    
+}
+h2{
+    text-align:center;
+}

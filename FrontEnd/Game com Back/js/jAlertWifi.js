@@ -37,9 +37,13 @@ function alertWifi($txt, $hasTimer, $countTimer, $srcImg, $fontSize) {
     
     // Se não houver timer exibe um texto fixo ao inves de um cronometro regressivo
     if (!$hasTimer) {
-        $btnPanelInfo = $("<button></button>").text("Fechar").addClass("button");
+        $btnPanelInfo = $("<button></button>").text("Veja sua colocação no Ranking Geral!").addClass("button");
         $($contentPanel).append($btnPanelInfo);
-        $($btnPanelInfo).click(function(){closeAlertWifi($panelInfo)});
+        $($btnPanelInfo).click(function(){
+            closeAlertWifi($panelInfo);
+            window.open("ranking.html", "_self");
+        });
+       
     }
 
     // Adiciona o painel de informações ao body
